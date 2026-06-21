@@ -2,11 +2,17 @@ import streamlit as st
 from langraph_backend import chatbot
 from langchain_core.messages import HumanMessage
 #session state=store message 
+import uuid
 
 
 CONFIG={'configurable':{'thread_id':'thread-1'}}
 if 'message_history' not in st.session_state:
     st.session_state['message_history']=[]
+
+
+st.sidebar.title('Langraph chatbot')
+st.sidebar.button('new chat');
+st.sidebar.header('myconverstation')    
 
 
 for message in st.session_state['message_history']:
