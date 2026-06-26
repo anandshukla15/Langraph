@@ -21,7 +21,8 @@ def add_thread(thread_id):
 
 
 def load_converstion(thread_id):
-    return chatbot.get_state(config={'configurable':{'thread_id': thread_id}}).values['messages']        
+    state=chatbot.get_state(config={'configurable':{'thread_id': thread_id}})
+    return state.values.get('messages',[])        
 ##sessin state
 
 if 'message_history' not in st.session_state:
